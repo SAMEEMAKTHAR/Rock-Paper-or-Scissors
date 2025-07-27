@@ -15,5 +15,4 @@ A simple Rock, Paper, Scissors game built using **HTML**, **CSS**, and **JavaScr
 - CSS3 (external stylesheet)
 - JavaScript (embedded in HTML)
 
-📂 Project Structure
 
