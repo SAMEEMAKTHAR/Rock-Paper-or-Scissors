@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Rock, Paper, or Scissors</h1>
+  <p>Click below to play the game!</p>
+  <button onclick="playGame()">Start Game</button>
+
+  <script>
+    function playGame() {
+      let input = confirm("Shall we play rock, paper, or scissors?");
+      if (input) {
+        var me = prompt("Please enter rock, paper or scissors");
+        if (me) {
+          let player = me.trim().toLowerCase();
+          if (player === "rock" || player === "paper" || player === "scissors") {
+            let computerChoice = Math.floor(Math.random() * 3 + 1);
+            let computer = computerChoice === 1 ? "rock" :
+                           computerChoice === 2 ? "paper" : "scissors";
+
+            let result =
+              player === computer
+                ? "Tie game"
+                : player === "rock" && computer === "paper"
+                ? "Computer wins"
+                : player === "rock" && computer === "scissors"
+                ? "You win!"
+                : player === "paper" && computer === "rock"
+                ? "You win!"
+                : player === "paper" && computer === "scissors"
+                ? "Computer wins"
+                : player === "scissors" && computer === "rock"
+                ? "Computer wins"
+                : player === "scissors" && computer === "paper"
+                ? "You win!"
+                : "Invalid move";
+
+            alert(`Computer chose ${computer}\n${result}`);
+
+            let playAgain = confirm("Play again?");
+            if (playAgain) {
+              location.reload();
+            } else {
+              alert("OK, thanks for playing!");
+            }
+          } else {
+            alert("Enter a valid choice: rock, paper, or scissors.");
+          }
+        } else {
+          alert("You changed your mind, maybe next time!");
+        }
+      } else {
+        alert("OK, thank you!");
+      }
+    }
+  </script>
+</body>
+</html>
